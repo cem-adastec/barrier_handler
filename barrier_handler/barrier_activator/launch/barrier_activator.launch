@@ -1,0 +1,9 @@
+<launch>
+
+  <node name="barrier_activator_node" pkg="barrier_activator" type="barrier_activator_node" output="screen">
+    <param name="barrier_id" value="1"/>
+  </node>
+
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+
+</launch>

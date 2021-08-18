@@ -1,0 +1,25 @@
+<launch>
+
+  <arg name="path_to_save" default="$(env HOME)/" />
+
+  <node name="barrier_selection_node" pkg="barrier_selection" type="barrier_selection_node" output="screen">
+    <param name="barrier_center_x_adjust" value="0.0"/>
+    <param name="barrier_center_y_adjust" value="0.0"/>
+    <param name="barrier_center_z_adjust" value="0.0"/>
+    
+    <param name="barrier_box_width_adjust"  value="0.0"/>
+    <param name="barrier_box_height_adjust" value="0.0"/>
+    <param name="barrier_box_length_adjust" value="0.0"/>
+
+    <param name="barrier_stopline_matcher_radius" value="0.0"/>
+
+    <param name="path_to_save" type="string" value="$(arg path_to_save)" />
+  </node>
+
+  <!-- <include file="$(env HOME)/flowride.launcher/launch/adastec_map.launch"/> -->
+  
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find barrier_selection)/rviz/barrier_selection.rviz" />
+
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+
+</launch>
